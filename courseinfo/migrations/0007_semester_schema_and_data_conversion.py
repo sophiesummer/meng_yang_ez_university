@@ -100,12 +100,12 @@ def add_calendar_period_data(apps, schema_editor):
 def remove_year_data(apps, schema_editor):
     year_model_class = apps.get_model('courseinfo', 'Year')
     for this_year in YEARS:
-        print(this_year)
-        if this_year is None:
-            return
         year_object = year_model_class.objects.get(
             year=this_year['year']
         )
+        print(year_object)
+        print(this_year['year'])
+        #return
         if year_object is not None:
             year_object.delete()
 
